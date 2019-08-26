@@ -5,10 +5,7 @@ import alert.system.application.model.Result;
 import alert.system.application.repository.AlertRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class AlertService {
@@ -62,4 +59,8 @@ public class AlertService {
 
     }
 
+    public Set<Result> getAlertResult(Long alertId) {
+        Optional<Alert> alert = alertRepository.findById(alertId);
+        return alert.map(Alert::getResultList).orElse(null);
+    }
 }

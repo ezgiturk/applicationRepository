@@ -5,12 +5,11 @@ import alert.system.application.model.Result;
 import alert.system.application.services.AlertService;
 import alert.system.application.services.RequestService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 @RestController
 @CrossOrigin("*")
@@ -21,11 +20,12 @@ public class RequestController {
 
 
     @PostMapping("/sendRequest")
-    public void saveRequest(@RequestBody final Alert alert){
+    public void saveRequest(@RequestBody final Alert alert) {
         boolean success = requestService.sendRequest(alert);
-        System.out.println("sonuc: "+success);
-        alertService.addResult(alert.getId(), success);
-
-
+        System.out.println("sonuc: " + success);
+    }
+    @GetMapping("/result/{alertId}")
+    public Set<Result> getResult(@PathVariable Long alertId){
+        return alertService.getAlertResult(alertId);
     }
 }

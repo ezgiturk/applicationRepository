@@ -8,5 +8,4 @@ import java.util.Optional;
 
 public interface AlertRepository extends JpaRepository<Alert, Long> {
 
-
 }

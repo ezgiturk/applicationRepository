@@ -6,7 +6,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -43,7 +42,8 @@ public class AlertController {
         alertService.deleteAlert(alertId);
     }
 
-    public Alert updateAlert(Alert alert, Long alertId){
+    @PutMapping("update-alert/{alertId}")
+    public Alert updateAlert(Alert alert, @PathVariable Long alertId){
         Optional<Alert> updatedAlert = alertService.findById(alertId);
 
         if (updatedAlert.isPresent()){
