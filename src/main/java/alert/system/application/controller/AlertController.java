@@ -1,10 +1,8 @@
 package alert.system.application.controller;
 
 import alert.system.application.model.Alert;
-import alert.system.application.repository.AlertRepository;
 import alert.system.application.services.AlertService;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,15 +32,6 @@ public class AlertController {
         alert.setResultList(new HashSet<>());
         return alertService.addAlert(alert);
     }
-    /*
-    @Scheduled(fixedRate = 5000)
-    public void task1() {
-        System.out.println(Thread.currentThread().getName()+" Task 1 executed at "+ new Date());
-    }
-    @Scheduled(fixedRate = 1000)
-    public void task2() {
-        System.out.println(Thread.currentThread().getName() + " Task 2 executed at " + new Date());
-    }*/
 
     @GetMapping("/alerts")
     public List alertList(){

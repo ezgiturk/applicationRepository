@@ -21,7 +21,7 @@ public class App {
         App.alertService = alertService;
     }
 
-    @Scheduled(fixedRate = 1000)
+    //@Scheduled(fixedRate = 1000)
     public void SyncMethod(){
         period+=1000;
 
@@ -36,7 +36,6 @@ public class App {
                     alertService.addResult(alert.getId(), success);
                     System.out.println("İSTEK GELDİ" + " period: "+ alert.getPeriod() +"  system period : "+period);
                 }
-
 
             }
             else{
