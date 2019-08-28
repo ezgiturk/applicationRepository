@@ -26,6 +26,7 @@ public class RequestController {
     }
     @GetMapping("/result/{alertId}")
     public Set<Result> getResult(@PathVariable Long alertId){
+        System.out.println("alId: "+alertId);
         return alertService.getAlertResult(alertId);
     }
 }
