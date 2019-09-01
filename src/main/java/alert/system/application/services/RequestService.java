@@ -1,6 +1,5 @@
 package alert.system.application.services;
 import alert.system.application.model.Alert;
-import alert.system.application.repository.AlertRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;

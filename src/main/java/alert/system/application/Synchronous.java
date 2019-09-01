@@ -10,15 +10,15 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class App {
+public class Synchronous {
     private static int period=0;
     private static AlertService alertService;
     private static RequestService requestService;
 
     @Autowired
-    public App(AlertService alertService, RequestService requestService) {
-        App.requestService = requestService;
-        App.alertService = alertService;
+    public Synchronous(AlertService alertService, RequestService requestService) {
+        Synchronous.requestService = requestService;
+        Synchronous.alertService = alertService;
     }
 
     //@Scheduled(fixedRate = 1000)

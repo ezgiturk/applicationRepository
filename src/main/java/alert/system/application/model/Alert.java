@@ -34,6 +34,7 @@ public class Alert {
     @JoinColumn(name = "alert_id")
     @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL} )
     @Nullable
+    @OrderBy("id ASC")
     private Set<Result> resultList ;
 
     @Override

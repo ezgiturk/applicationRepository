@@ -50,13 +50,9 @@ public class AlertService {
             Date date = new Date();
             result.setDate(date);
             result.setSuccess(success);
-
-            System.out.println("result object:"+ result.toString());
-
-            alert.get().getResultList().add(result);
+            Objects.requireNonNull(alert.get().getResultList()).add(result);
             alertRepository.save(alert.get());
         }
-
     }
 
     public Set<Result> getAlertResult(Long alertId) {

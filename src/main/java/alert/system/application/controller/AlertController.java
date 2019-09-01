@@ -44,12 +44,12 @@ public class AlertController {
 
     @PutMapping("update-alert/{alertId}")
     public Alert updateAlert(@RequestBody final Alert alert, @PathVariable Long alertId){
-        System.out.println("DDDDDDDDDDD: "+ alertId);
         Optional<Alert> updatedAlert = alertService.findById(alertId);
         if (updatedAlert.isPresent()){
             System.out.println("update alertId: "+ updatedAlert.get().getId());
             System.out.println("update alertName: "+ updatedAlert.get().getName());
             alert.setId(updatedAlert.get().getId());
+            alert.setResultList(updatedAlert.get().getResultList());
             return alertService.save(alert);
 
         }
